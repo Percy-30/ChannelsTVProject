@@ -29,12 +29,12 @@ import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.DefaultHttpDataSource
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.media3.exoplayer.drm.DefaultDrmSessionManager
-import androidx.media3.exoplayer.drm.DrmSessionManagerProvider
 import androidx.media3.exoplayer.drm.FrameworkMediaDrm
 import androidx.media3.exoplayer.drm.LocalMediaDrmCallback
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
 import androidx.media3.ui.PlayerView
 import com.streamingtv.channelstv.data.Channel
+import com.streamingtv.channelstv.data.isScrapeable
 import com.streamingtv.channelstv.ui.theme.GreenAccent
 import com.streamingtv.channelstv.ui.theme.TextPrimary
 
@@ -114,20 +114,117 @@ fun PlayerScreen(
     channel: Channel,
     onBack: () -> Unit
 ) {
-    val context = LocalContext.current
-    var isError    by remember { mutableStateOf(false) }
-    var errorMsg   by remember { mutableStateOf("") }
-    var isBuffering by remember { mutableStateOf(true) }
-    var retryKey   by remember { mutableIntStateOf(0) }
-
     DisposableEffect(Unit) {
-        val activity = context as? Activity
+        val activity = LocalContext.current as? Activity
         val orig = activity?.requestedOrientation
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         onDispose {
             activity?.requestedOrientation = orig ?: ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
         }
     }
+
+    if (channel.isScrapeable) {
+        // ── MODO SCRAPE: extraer URL dinámicamente y luego reproducir ─────────
+        ScrapeThenPlayScreen(channel = channel, onBack = onBack)
+    } else {
+        // ── MODO DIRECTO: reproducir URL estática ────────────────────────────
+        DirectPlayerScreen(channel = channel, onBack = onBack)
+    }
+}
+
+// ── FASE 1: Extracción de stream via WebView ─────────────────────────────────
+
+@Composable
+private fun ScrapeThenPlayScreen(channel: Channel, onBack: () -> Unit) {
+    var extractedUrl by remember { mutableStateOf<String?>(null) }
+    var extractionError by remember { mutableStateOf<String?>(null) }
+    var retryKey by remember { mutableIntStateOf(0) }
+
+    val context = LocalContext.current
+
+    when {
+        extractedUrl != null -> {
+            // URL extraída exitosamente, reproducir con ExoPlayer
+            val playableChannel = channel.copy(url = extractedUrl!!)
+            DirectPlayerScreen(channel = playableChannel, onBack = onBack)
+        }
+        extractionError != null -> {
+            // Mostrar error de extracción
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.Black)
+                    .padding(24.dp),
+                contentAlignment = Alignment.Center
+            ) {
+                Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text("⚠️", style = MaterialTheme.typography.displaySmall)
+                    Spacer(modifier = Modifier.height(12.dp))
+                    Text(
+                        text = "No se pudo cargar\n${channel.name}",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = Color.White,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = extractionError ?: "",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = Color.Gray,
+                        textAlign = TextAlign.Center
+                    )
+                    Spacer(modifier = Modifier.height(24.dp))
+                    Button(
+                        onClick = {
+                            extractionError = null
+                            extractedUrl = null
+                            retryKey++
+                        },
+                        colors = ButtonDefaults.buttonColors(containerColor = GreenAccent)
+                    ) {
+                        Icon(Icons.Default.Refresh, null, modifier = Modifier.size(18.dp))
+                        Spacer(modifier = Modifier.width(6.dp))
+                        Text("Reintentar")
+                    }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    TextButton(onClick = onBack) {
+                        Text("← Volver", color = Color.LightGray)
+                    }
+                }
+            }
+        }
+        else -> {
+            // Mostrar WebView extractor oculto con pantalla de loading
+            key(retryKey) {
+                StreamExtractorWebView(
+                    scrapeUrl = channel.scrapeUrl!!,
+                    channelName = channel.name,
+                    onStreamFound = { url ->
+                        android.util.Log.d("CHANNELS_TV", "Stream extraído: $url")
+                        extractedUrl = url
+                    },
+                    onError = { msg ->
+                        extractionError = msg
+                    }
+                )
+            }
+        }
+    }
+}
+
+// ── FASE 2 / Modo Directo: Reproducción nativa con ExoPlayer ─────────────────
+
+@OptIn(UnstableApi::class)
+@Composable
+private fun DirectPlayerScreen(
+    channel: Channel,
+    onBack: () -> Unit
+) {
+    val context = LocalContext.current
+    var isError    by remember { mutableStateOf(false) }
+    var errorMsg   by remember { mutableStateOf("") }
+    var isBuffering by remember { mutableStateOf(true) }
+    var retryKey   by remember { mutableIntStateOf(0) }
 
     // Determine DRM JSON payload
     val drmJsonBytes = remember(channel) {

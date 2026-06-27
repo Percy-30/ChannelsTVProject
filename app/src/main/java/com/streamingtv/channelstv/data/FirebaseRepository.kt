@@ -28,7 +28,7 @@ class FirebaseRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val channels = snapshot.children.mapNotNull { child ->
                     try {
-                        Channel(
+                    Channel(
                             id = child.key ?: "",
                             name = child.child("name").getValue(String::class.java) ?: "",
                             url = child.child("url").getValue(String::class.java) ?: "",
@@ -38,7 +38,8 @@ class FirebaseRepository {
                             drmKeysJson = child.child("drmKeysJson").getValue(String::class.java),
                             category = child.child("category").getValue(String::class.java) ?: "Variados",
                             type = child.child("type").getValue(String::class.java) ?: "video",
-                            order = child.child("order").getValue(Int::class.java) ?: 0
+                            order = child.child("order").getValue(Int::class.java) ?: 0,
+                            scrapeUrl = child.child("scrapeUrl").getValue(String::class.java)
                         )
                     } catch (e: Exception) {
                         null

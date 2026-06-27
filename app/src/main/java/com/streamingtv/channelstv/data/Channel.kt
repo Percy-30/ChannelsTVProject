@@ -14,5 +14,10 @@ data class Channel(
     val drmKeysJson: String? = null,
     val category: String = "Variados",
     val type: String = "video",
-    val order: Int = 0
+    val order: Int = 0,
+    /** Si está presente, la URL del stream se extrae dinámicamente (WebView scraper). */
+    val scrapeUrl: String? = null
 )
+
+/** Retorna true si este canal requiere extracción dinámica de stream. */
+val Channel.isScrapeable: Boolean get() = !scrapeUrl.isNullOrBlank()
