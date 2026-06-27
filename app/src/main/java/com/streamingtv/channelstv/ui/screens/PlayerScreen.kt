@@ -114,8 +114,9 @@ fun PlayerScreen(
     channel: Channel,
     onBack: () -> Unit
 ) {
+    val context = LocalContext.current
     DisposableEffect(Unit) {
-        val activity = LocalContext.current as? Activity
+        val activity = context as? Activity
         val orig = activity?.requestedOrientation
         activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         onDispose {
