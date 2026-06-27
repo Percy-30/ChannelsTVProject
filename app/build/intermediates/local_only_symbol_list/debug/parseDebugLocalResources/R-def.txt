@@ -1,0 +1,29 @@
+R_DEF: Internal format may change without notice
+local
+drawable _ic_launcher_foreground__0_res_0x7f060000
+drawable baked_goods_1
+drawable baked_goods_2
+drawable baked_goods_3
+drawable common_full_open_on_phone
+drawable googleg_disabled_color_18
+drawable googleg_standard_color_18
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_quality
+drawable ic_rotate
+drawable notify_panel_notification_icon_bg
+font roboto_medium_numbers
+mipmap ic_launcher
+mipmap ic_launcher_round
+raw firebase_common_keep
+raw hello
+raw videoplayback
+string app_name
+string firebase_database_url
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
+string project_id
+style Theme.ChannelsTV

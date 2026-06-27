@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.streamingtv.channelstv.app-mergeDebugResources-72:/values-v23/values-v23.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\ATP\\.gradle\\caches\\9.0.0\\transforms\\1e73575db0cffa76d0432e85d546eb6a\\transformed\\work-runtime-2.7.0\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,121",
+                        "endColumns": "65,62",
+                        "endOffsets": "116,179"
+                    }
+                }
+            ]
+        }
+    ]
+}

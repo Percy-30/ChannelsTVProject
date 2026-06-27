@@ -1,0 +1,150 @@
+[
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-mdpi_googleg_standard_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-mdpi/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/raw_firebase_common_keep.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/raw/firebase_common_keep.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-hdpi_notify_panel_notification_icon_bg.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-hdpi/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-hdpi_googleg_standard_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-hdpi/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-mdpi_googleg_disabled_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-mdpi/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_baked_goods_2.jpg.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/baked_goods_2.jpg"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_ic_quality.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/ic_quality.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-xxhdpi_googleg_standard_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-xxhdpi/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/font_roboto_medium_numbers.ttf.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/font/roboto_medium_numbers.ttf"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/raw_videoplayback.mp4.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/raw/videoplayback.mp4"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-hdpi_googleg_disabled_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-hdpi/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/raw_hello.wav.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/raw/hello.wav"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-xxhdpi_googleg_disabled_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-xxhdpi/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_ic_rotate.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/ic_rotate.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-mdpi_notify_panel_notification_icon_bg.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-mdpi/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-xhdpi_common_full_open_on_phone.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-xhdpi/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_baked_goods_3.jpg.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/baked_goods_3.jpg"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-xhdpi_googleg_disabled_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-xhdpi/googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable_baked_goods_1.jpg.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/baked_goods_1.jpg"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-xhdpi_googleg_standard_color_18.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-xhdpi/googleg_standard_color_18.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-hdpi_common_full_open_on_phone.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-hdpi/common_full_open_on_phone.png"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable__ic_launcher_foreground__0_res_0x7f060000.xml.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable/_ic_launcher_foreground__0_res_0x7f060000.xml"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.streamingtv.channelstv.app-debug-74:/drawable-xhdpi_notify_panel_notification_icon_bg.png.flat",
+        "source": "com.streamingtv.channelstv.app-main-76:/drawable-xhdpi/notify_panel_notification_icon_bg.png"
+    }
+]
