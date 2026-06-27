@@ -43,14 +43,26 @@ class FirebaseRepository {
                             "-OuQ8MXHIyUZ494Da-9A" to "https://futemax.boston/sportv-ao-vivo-assista-esportes-online-em-hd/"
                         )
 
+                        val localUrlOverrides = mapOf(
+                            "-Ouvyejgz1SBVnBgmNDY" to "http://190.11.225.124:5000/live/universo_hd/playlist.m3u8", // Universo
+                            "-OuxjzeDHFEwpUGYVwdh" to "https://content.uplynk.com/channel/b6a96ed39d694ae1b738faa98cf7dd3f.m3u8", // Telemundo
+                            "-Ouw0uWdFCYhKpqPsmvT" to "http://138.121.15.230:9002/TVN/index.m3u8" // TVN Chile
+                        )
+
                         if (localScrapeOverrides.containsKey(id)) {
                             scrapeUrl = localScrapeOverrides[id]
+                        }
+
+                        var finalUrl = child.child("url").getValue(String::class.java) ?: ""
+                        if (localUrlOverrides.containsKey(id)) {
+                            finalUrl = localUrlOverrides[id]!!
+                            scrapeUrl = null // Si tenemos URL directa, no usamos scraper
                         }
 
                         Channel(
                             id = id,
                             name = child.child("name").getValue(String::class.java) ?: "",
-                            url = child.child("url").getValue(String::class.java) ?: "",
+                            url = finalUrl,
                             logoUrl = child.child("logoUrl").getValue(String::class.java),
                             drmKeyId = child.child("drmKeyId").getValue(String::class.java),
                             drmKey = child.child("drmKey").getValue(String::class.java),
