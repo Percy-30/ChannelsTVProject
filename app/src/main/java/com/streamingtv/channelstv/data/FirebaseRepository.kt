@@ -28,8 +28,27 @@ class FirebaseRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val channels = snapshot.children.mapNotNull { child ->
                     try {
-                    Channel(
-                            id = child.key ?: "",
+                        val id = child.key ?: ""
+                        var scrapeUrl = child.child("scrapeUrl").getValue(String::class.java)
+
+                        // Fallback local para asegurar 100% de funcionalidad en canales caídos
+                        val localScrapeOverrides = mapOf(
+                            "-OuQ6PTPvjpxMhnzpc4U" to "https://futemax.boston/espn-ao-vivo-assista-esportes-online-em-hd/",
+                            "-OuQBNfEl7Zyy3dq7NBC" to "https://futemax.boston/espn-2-ao-vivo-assista-esportes-em-hd/",
+                            "-OuQBYI4MN5BJAjsIPzL" to "https://futemax.boston/espn-3-ao-vivo-assista-esportes-em-hd/",
+                            "-OuQBi3g9IXv_VbkOQGq" to "https://futemax.boston/espn-4-ao-vivo-assista-esportes-em-hd/",
+                            "-OvGdVmr2seoMMJtQ6Ns" to "https://futemax.boston/espn-ao-vivo-assista-esportes-online-em-hd/",
+                            "-OvGdmsaeEPGr0srQAJi" to "https://futemax.boston/espn-2-ao-vivo-assista-esportes-em-hd/",
+                            "-OvGe2MhaW19igxgqnsf" to "https://futemax.boston/espn-3-ao-vivo-assista-esportes-em-hd/",
+                            "-OuQ8MXHIyUZ494Da-9A" to "https://futemax.boston/sportv-ao-vivo-assista-esportes-online-em-hd/"
+                        )
+
+                        if (localScrapeOverrides.containsKey(id)) {
+                            scrapeUrl = localScrapeOverrides[id]
+                        }
+
+                        Channel(
+                            id = id,
                             name = child.child("name").getValue(String::class.java) ?: "",
                             url = child.child("url").getValue(String::class.java) ?: "",
                             logoUrl = child.child("logoUrl").getValue(String::class.java),
@@ -39,7 +58,7 @@ class FirebaseRepository {
                             category = child.child("category").getValue(String::class.java) ?: "Variados",
                             type = child.child("type").getValue(String::class.java) ?: "video",
                             order = child.child("order").getValue(Int::class.java) ?: 0,
-                            scrapeUrl = child.child("scrapeUrl").getValue(String::class.java)
+                            scrapeUrl = scrapeUrl
                         )
                     } catch (e: Exception) {
                         null
